@@ -48,39 +48,21 @@ imageManager.execute = function (key) {
 var timing = 250;
 
 function loop() {
-  var image = document.querySelector('.twitter-picture');
   var value = Math.floor(Math.random()*4);
-  var bounding = image.getBoundingClientRect();
   switch(value){
-       case 0:
-           if (bounding.top <= 10) { 
-               image.style.top = image.offsetTop + 20 + 'px'
-           } else {
-               image.style.top = image.offsetTop - 10 + 'px'
-           }
-           break
-       case 1:
-           if (bounding.left <= 10) {
-               image.style.left = image.offsetLeft + 10 + 'px'
-           } else {
-               image.style.left = image.offsetLeft - 10 + 'px'
-           }
-           break
-       case 2:
-           if ((bounding.right - 10) > (window.innerWidth || document.documentElement.clientWidth)) {
-               image.style.left = image.offsetLeft - 10 + 'px'
-           } else {
-               image.style.left = image.offsetLeft + 10 + 'px'
-           }
-           break
-       case 3:
-           if ((bounding.bottom - 10) > (window.innerHeight || document.documentElement.clientHeight)) {
-               image.style.top = image.offsetTop - 10 + 'px'
-           } else {
-               image.style.top = image.offsetTop + 10 + 'px'
-           }
-           break 
-   }
+    case 0:
+         imageManager.ArrowUp()
+         break
+    case 1:
+         imageManager.ArrowDown()
+         break
+    case 2:
+        imageManager.ArrowLeft()
+        break
+    case 3:
+        imageManager.ArrowRight()
+        break 
+    }
   window.setTimeout(loop, timing);
 }
 
